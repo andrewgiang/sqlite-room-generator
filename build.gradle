@@ -1,0 +1,17 @@
+group 'com.andrewgiang'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'antlr'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.squareup:javapoet:1.9.0'
+    compile 'com.google.guava:guava:23.6-jre'
+    antlr "org.antlr:antlr4:4.5" // use ANTLR version 4
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
