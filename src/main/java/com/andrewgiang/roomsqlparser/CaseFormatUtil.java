@@ -27,7 +27,7 @@ class CaseFormatUtil {
   }
 
 
-  public static String convertTo(CaseFormat format, String string) {
+  static String convertTo(CaseFormat format, String string) {
     CaseFormat caseFormat = getCaseFormatName(string);
     if (caseFormat != null) {
       return caseFormat.to(format, string);

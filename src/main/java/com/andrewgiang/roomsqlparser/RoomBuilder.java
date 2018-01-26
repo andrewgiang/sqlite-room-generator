@@ -9,21 +9,21 @@ import java.util.List;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-public class RoomBuilder {
+class RoomBuilder {
   private String tableName;
 
   private List<Field> fieldList = new ArrayList<>();
 
-  public void tableName(String text) {
+  void tableName(String text) {
     tableName = text;
   }
 
-  public void addField(Field field) {
+  void addField(Field field) {
     fieldList.add(field);
   }
 
 
-  public JavaFile build(String modelPackage) {
+  JavaFile build(String modelPackage) {
     return JavaFile.builder(modelPackage, buildTypeSpec()).build();
   }
 
