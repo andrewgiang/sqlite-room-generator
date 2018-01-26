@@ -7,7 +7,6 @@ import javax.lang.model.element.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.andrewgiang.roomsqlparser.CaseFormatUtil.ALPHA_NUMERIC_UNDERSCORE_REGEX;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 class RoomBuilder {
@@ -74,6 +73,6 @@ class RoomBuilder {
 
   private AnnotationSpec entityAnnotationSpec(String tableName) {
     return AnnotationSpec.builder(ClassName.get("android.arch.persistence.room", "Entity"))
-        .addMember("tableName", "$N", tableName).build();
+        .addMember("tableName", "$S", tableName).build();
   }
 }

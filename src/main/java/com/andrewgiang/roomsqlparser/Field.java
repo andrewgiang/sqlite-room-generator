@@ -5,7 +5,6 @@ import com.squareup.javapoet.TypeName;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.andrewgiang.roomsqlparser.CaseFormatUtil.ALPHA_NUMERIC_UNDERSCORE_REGEX;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 class Field {
