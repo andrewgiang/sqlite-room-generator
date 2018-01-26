@@ -23,10 +23,6 @@ class Field {
     return columnName;
   }
 
-  String getColumnNameAlphaNumeric(){
-    return columnName.replaceAll(ALPHA_NUMERIC_UNDERSCORE_REGEX, "");
-  }
-
   TypeName getAffanityType() {
     if (!constraints.contains(ColumnConstraint.NOTNULL)) {
       if (affinity.getType().isPrimitive()) {

@@ -6,7 +6,7 @@ import java.util.IllegalFormatException;
 
 class CaseFormatUtil {
 
-  public static final String ALPHA_NUMERIC_UNDERSCORE_REGEX = "[^\\p{IsAlphabetic}^\\p{IsDigit}^_]";
+  private static final String ALPHA_NUMERIC_UNDERSCORE_REGEX = "[^\\p{IsAlphabetic}^\\p{IsDigit}^_]";
 
   private static CaseFormat getCaseFormatName(String s) throws IllegalFormatException {
     if (s.contains("_")) {
@@ -31,10 +31,11 @@ class CaseFormatUtil {
 
 
   static String convertTo(CaseFormat format, String string) {
-    CaseFormat caseFormat = getCaseFormatName(string);
+    String alphaNumericString = string.replaceAll(ALPHA_NUMERIC_UNDERSCORE_REGEX, "");
+    CaseFormat caseFormat = getCaseFormatName(alphaNumericString);
     if (caseFormat != null) {
-      return caseFormat.to(format, string);
+      return caseFormat.to(format, alphaNumericString);
     }
-    return string;
+    return alphaNumericString;
   }
 }

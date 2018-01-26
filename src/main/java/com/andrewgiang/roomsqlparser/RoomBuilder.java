@@ -31,7 +31,7 @@ class RoomBuilder {
   private TypeSpec buildTypeSpec() {
     checkNotNull(tableName);
     TypeSpec.Builder builder = TypeSpec
-        .classBuilder(CaseFormatUtil.convertTo(CaseFormat.UPPER_CAMEL, getTableNameAlphaNumeric()))
+        .classBuilder(CaseFormatUtil.convertTo(CaseFormat.UPPER_CAMEL, tableName))
         .addModifiers(Modifier.PUBLIC)
         .addAnnotation(entityAnnotationSpec(tableName));
     for (Field field : fieldList) {
@@ -41,14 +41,11 @@ class RoomBuilder {
     return builder.build();
   }
 
-  private String getTableNameAlphaNumeric() {
-    return tableName.replaceAll(ALPHA_NUMERIC_UNDERSCORE_REGEX, "");
-  }
 
   private FieldSpec buildFieldSpec(Field field) {
     FieldSpec.Builder builder = FieldSpec.builder(
         field.getAffanityType(),
-        CaseFormatUtil.convertTo(CaseFormat.LOWER_CAMEL, field.getColumnNameAlphaNumeric()),
+        CaseFormatUtil.convertTo(CaseFormat.LOWER_CAMEL, field.getColumnName()),
         Modifier.PUBLIC
     ).addAnnotation(columnAnnotationSpec(field.getColumnName()));
 
