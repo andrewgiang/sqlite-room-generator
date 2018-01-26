@@ -15,11 +15,12 @@ public enum Affanity {
   }
 
   public static Affanity from(String text) {
-    try {
-      return Affanity.valueOf(text.toUpperCase());
-    } catch (Exception e) {
-      return null;
+    for (Affanity affanity : Affanity.values()) {
+      if (text.equalsIgnoreCase(affanity.name())) {
+        return affanity;
+      }
     }
+    return null;
   }
 
   public TypeName getType() {

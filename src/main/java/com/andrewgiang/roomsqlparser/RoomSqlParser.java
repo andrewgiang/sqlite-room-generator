@@ -35,10 +35,10 @@ public class RoomSqlParser {
       @Override
       public void exitColumn_def(SQLiteParser.Column_defContext ctx) {
         Field.Builder builder = new Field.Builder();
-        builder.setColumnName(ctx.column_name().getText());
-        builder.setAffinity(Affanity.from(ctx.type_name().start.getText().toUpperCase()));
+        builder.setColumnName(ctx.column_name().getText())
+            .setAffinity(Affanity.from(ctx.type_name().getText()));
         for (SQLiteParser.Column_constraintContext constraintContext : ctx.column_constraint()) {
-          builder.addConstraint(ColumnConstraint.from(constraintContext.getText().toUpperCase()));
+          builder.addConstraint(ColumnConstraint.from(constraintContext.getText()));
         }
         this.builder.addField(builder.build());
       }
