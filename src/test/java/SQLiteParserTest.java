@@ -4,6 +4,7 @@ import org.antlr.v4.runtime.ANTLRInputStream;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -78,4 +79,13 @@ public class SQLiteParserTest {
 
     }
 
+
+    @Test
+    public void testSchemaFile() throws Exception {
+
+        List<JavaFile> javaFiles = sqlParser.parseSql(new ANTLRInputStream(getClass().getResourceAsStream("schema.txt")), JAVA_MODEL_PACKAGE);
+        assertTrue(javaFiles.size() == 11);
+        //TODO verify content with actual working room entity files
+
+    }
 }

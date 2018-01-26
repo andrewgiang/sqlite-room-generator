@@ -5,9 +5,10 @@ import com.squareup.javapoet.TypeName;
 
 public enum Affanity {
   TEXT(TypeName.get(String.class)),
+  NVARCHAR(TypeName.get(String.class)),
   NUMERIC(TypeName.FLOAT),
-  INTEGER(TypeName.INT);
-
+  INTEGER(TypeName.INT),
+  UNKNOWN(TypeName.OBJECT);
   private TypeName typeSpec;
 
   Affanity(TypeName typeName) {
@@ -20,7 +21,8 @@ public enum Affanity {
         return affanity;
       }
     }
-    return null;
+    System.err.println(text + " is an unknown affanity");
+    return UNKNOWN;
   }
 
   public TypeName getType() {

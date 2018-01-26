@@ -5,6 +5,7 @@ import com.squareup.javapoet.TypeName;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.andrewgiang.roomsqlparser.CaseFormatUtil.ALPHA_NUMERIC_UNDERSCORE_REGEX;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 class Field {
@@ -22,6 +23,10 @@ class Field {
     return columnName;
   }
 
+  String getColumnNameAlphaNumeric(){
+    return columnName.replaceAll(ALPHA_NUMERIC_UNDERSCORE_REGEX, "");
+  }
+
   TypeName getAffanityType() {
     if (!constraints.contains(ColumnConstraint.NOTNULL)) {
       if (affinity.getType().isPrimitive()) {
@@ -31,8 +36,12 @@ class Field {
     return affinity.getType();
   }
 
-  boolean isPrimary() {
+  boolean isPrimaryKey() {
     return constraints.contains(ColumnConstraint.PRIMARYKEY);
+  }
+
+  boolean isAutoIncrementPrimary() {
+    return constraints.contains(ColumnConstraint.PRIMARYKEYAUTOINCREMENT);
   }
 
 

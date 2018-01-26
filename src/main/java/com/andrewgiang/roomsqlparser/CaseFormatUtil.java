@@ -5,6 +5,9 @@ import com.google.common.base.CaseFormat;
 import java.util.IllegalFormatException;
 
 class CaseFormatUtil {
+
+  public static final String ALPHA_NUMERIC_UNDERSCORE_REGEX = "[^\\p{IsAlphabetic}^\\p{IsDigit}^_]";
+
   private static CaseFormat getCaseFormatName(String s) throws IllegalFormatException {
     if (s.contains("_")) {
       if (s.toUpperCase().equals(s))
