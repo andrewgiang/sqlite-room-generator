@@ -28,8 +28,11 @@
  *                https://github.com/bkiers/sqlite-parser
  * Developed by : Bart Kiers, bart@big-o.nl
  */
-grammar SQLite;
 
+grammar SQLite;
+ @header{
+    package com.andrewgiang.roomsqlparser;
+ }
 parse
  : ( sql_stmt_list | error )* EOF
  ;

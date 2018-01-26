@@ -1,3 +1,5 @@
+package com.andrewgiang.roomsqlparser;
+
 public enum  ColumnConstraint {
     PRIMARYKEY,
     NOTNULL;

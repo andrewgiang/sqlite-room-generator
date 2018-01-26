@@ -1,3 +1,5 @@
+package com.andrewgiang.roomsqlparser;
+
 import com.squareup.javapoet.JavaFile;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;

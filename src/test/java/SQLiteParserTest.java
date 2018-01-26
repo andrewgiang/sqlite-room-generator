@@ -1,3 +1,4 @@
+import com.andrewgiang.roomsqlparser.RoomSqlParser;
 import com.squareup.javapoet.JavaFile;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.junit.Before;

@@ -1,3 +1,5 @@
+package com.andrewgiang.roomsqlparser;
+
 import com.google.common.base.CaseFormat;
 
 import java.util.IllegalFormatException;
